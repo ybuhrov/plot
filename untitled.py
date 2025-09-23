@@ -5,7 +5,7 @@ import plotly.express as px
 st.set_page_config(layout="wide")
 
 # Завантаження даних (може бути CSV або Google Sheets через gspread/pandas)
-df = pd.read_csv("/Users/macbookpro/Downloads/zp_example_movements_and_echelons.csv", parse_dates=["event_date"])
+df = pd.read_csv("zp_example_movements_and_echelons.csv", parse_dates=["event_date"])
 
 st.title("Патерни мереміщень, Запоріжжя")
 
