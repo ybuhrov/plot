@@ -1,9 +1,5 @@
-print(8)
-
-import math
 import streamlit as st
 import pandas as pd
-import plotly.express as px
 
 st.set_page_config(layout="wide")
 
@@ -31,8 +27,7 @@ group_cols = ["event_date"] + ([split_by] if split_by != "None" else [])
 df_grouped = df_f.groupby(group_cols, as_index=False)["devices"].sum()
 
 # Графік
-fig = px.line(df_grouped, x="event_date", y="devices", color=split_by if split_by!="None" else None,
-              title="Сума devices за датами")
+fig = st.line_chart(df_grouped, x="event_date", y="devices", color=split_by if split_by!="None" else None)
 st.plotly_chart(fig, use_container_width=True)
 
 st.dataframe(df_grouped.head(50))
